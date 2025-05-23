@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro para Evento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-2xl">
+        <h1 class="text-3xl font-bold text-center text-cyan-400 mb-8">Registro para Evento Especial</h1>
+
+        <form id="event-form" novalidate>
+            <div class="mb-5">
+                <label for="nombre" class="block mb-2 text-sm font-medium text-gray-300">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required
+                        class="input-field"
+                        placeholder="Ej: Ana Sofía Paredes">
+                <p id="nombre-error" class="error-message"></p>
+            </div>
+
+            <div class="mb-5">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required
+                        class="input-field"
+                        placeholder="ejemplo@correo.com">
+                <p id="email-error" class="error-message"></p>
+            </div>
+
+            <div class="mb-5">
+                <label for="telefono" class="block mb-2 text-sm font-medium text-gray-300">Teléfono (10 dígitos):</label>
+                <input type="tel" id="telefono" name="telefono" required
+                        class="input-field"
+                        placeholder="Ej: 3312345678">
+                <p id="telefono-error" class="error-message"></p>
+            </div>
+
+            <fieldset class="mb-5">
+                <legend class="block mb-2 text-sm font-medium text-gray-300">Intereses:</legend>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <input type="checkbox" id="interes-tecnologia" name="intereses[]" value="tecnologia" class="checkbox-field">
+                        <label for="interes-tecnologia" class="ml-2 text-sm text-gray-400">Tecnología</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interes-arte" name="intereses[]" value="arte" class="checkbox-field">
+                        <label for="interes-arte" class="ml-2 text-sm text-gray-400">Arte y Cultura</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interes-deportes" name="intereses[]" value="deportes" class="checkbox-field">
+                        <label for="interes-deportes" class="ml-2 text-sm text-gray-400">Deportes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interes-ciencia" name="intereses[]" value="ciencia" class="checkbox-field">
+                        <label for="interes-ciencia" class="ml-2 text-sm text-gray-400">Ciencia</label>
+                    </div>
+                </div>
+                <p id="intereses-error" class="error-message mt-1"></p>
+            </fieldset>
+
+            <fieldset class="mb-5">
+                <legend class="block mb-2 text-sm font-medium text-gray-300">Horario Preferido:</legend>
+                <div class="flex flex-col sm:flex-row sm:space-x-6">
+                    <div>
+                        <input type="radio" id="horario-manana" name="horario" value="manana" required class="radio-field">
+                        <label for="horario-manana" class="ml-2 text-sm text-gray-400">Mañana (9 AM - 12 PM)</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="horario-tarde" name="horario" value="tarde" required class="radio-field">
+                        <label for="horario-tarde" class="ml-2 text-sm text-gray-400">Tarde (2 PM - 5 PM)</label>
+                    </div>
+                </div>
+                <p id="horario-error" class="error-message mt-1"></p>
+            </fieldset>
+
+            <div class="mb-5">
+                <label for="fecha-evento" class="block mb-2 text-sm font-medium text-gray-300">Fecha del Evento:</label>
+                <input type="date" id="fecha-evento" name="fecha-evento" required class="input-field">
+                <p id="fecha-evento-error" class="error-message"></p>
+            </div>
+
+            <div class="mb-8">
+                <label for="archivo" class="block mb-2 text-sm font-medium text-gray-300">Subir Identificación (Opcional):</label>
+                <input type="file" id="archivo" name="archivo"
+                        class="block w-full text-sm text-gray-400
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-lg file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-cyan-600 file:text-white
+                                hover:file:bg-cyan-700 cursor-pointer">
+                <p id="archivo-error" class="error-message"></p>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg
+                            focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50
+                            transition duration-150 ease-in-out transform hover:scale-105">
+                Registrarme
+            </button>
+        </form>
+
+        <div id="success-message" class="hidden mt-6 p-4 bg-green-700 text-white rounded-lg text-center">
+            ¡Registro exitoso! Gracias por unirte.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

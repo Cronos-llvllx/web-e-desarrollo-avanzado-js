@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #3498db; /* Azul */
+    --secondary-color: #2ecc71; /* Verde */
+    --error-color: #e74c3c; /* Rojo */
+    --warning-color: #f39c12; /* Naranja */
+    --light-bg: #ecf0f1; /* Gris claro */
+    --dark-text: #2c3e50; /* Gris oscuro/negro */
+    --light-text: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio para scrolls largos */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--light-text);
+    padding: 25px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2.2em;
+}
+
+.instructions {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* Sección de Juego */
+.game-area {
+    margin-bottom: 20px;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-section label {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#guessInput {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    width: 60%;
+    max-width: 200px;
+    font-size: 1.1em;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+#guessInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+#guessButton,
+.restart-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius);
+    color: var(--light-text);
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#guessButton {
+    background-color: var(--primary-color);
+}
+
+#guessButton:hover {
+    background-color: #2980b9; /* Azul más oscuro */
+    transform: translateY(-2px);
+}
+
+.restart-button {
+    background-color: var(--secondary-color);
+    margin-top: 15px;
+}
+
+.restart-button:hover {
+    background-color: #27ae60; /* Verde más oscuro */
+    transform: translateY(-2px);
+}
+
+#guessButton:disabled,
+.restart-button:disabled { /* Aunque el restart no se deshabilita usualmente */
+    background-color: #bdc3c7; /* Gris */
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Sección de Retroalimentación */
+.feedback-section {
+    margin-bottom: 20px;
+    min-height: 60px; /* Para evitar saltos de layout */
+}
+
+#message {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.message-placeholder {
+    color: #7f8c8d; /* Gris medio */
+}
+.message-correct {
+    color: var(--secondary-color);
+}
+.message-error {
+    color: var(--error-color);
+}
+.message-info {
+    color: var(--primary-color);
+}
+.message-warning {
+    color: var(--warning-color);  
+}
+
+
+#attemptsMessage {
+    font-size: 1em;
+    color: #7f8c8d; /* Gris medio */
+}
+
+/* Sección de Intentos Anteriores */
+.previous-guesses-section {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+}
+
+.previous-guesses-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+#previousGuessesList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+#previousGuessesList li {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* Pie de Página */
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "mi-explorador-planetario",
+  "version": "1.0.0",
+  "description": "Un simple registrador de planetas favoritos usando Node.js y npm, ¡ahora con más funciones!",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "planetas",
+    "explorador",
+    "taller",
+    "npm",
+    "javascript"
+  ],
+  "author": "TuNombreDeExploradorEspacial",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
