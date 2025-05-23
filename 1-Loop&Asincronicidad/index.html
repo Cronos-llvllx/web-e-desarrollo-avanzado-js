@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Pedidos de Cafetería</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+        body {
+            font-family: 'Inter', sans-serif; 
+        }
+        .pedido-card {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center pt-8">
+
+    <div class="container mx-auto p-4 bg-white shadow-lg rounded-lg max-w-2xl">
+        <header class="mb-6 text-center">
+            <h1 class="text-3xl font-bold text-gray-700">Cafetería "El Event Loop"</h1>
+            <p class="text-gray-500">Simulador de Pedidos Asincrónicos</p>
+        </header>
+
+        <div class="mb-6 text-center">
+            <button id="agregarPedidoBtn"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-150 ease-in-out transform hover:scale-105">
+                Agregar Nuevo Pedido
+            </button>
+        </div>
+
+        <div id="pedidos-container" class="space-y-4">
+            <!-- Aquí se agregarán los pedidos -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

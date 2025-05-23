@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro con Validación Zod</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/zod@3.22.4/lib/index.umd.min.js"></script>
+    <style>
+        /* Estilos personalizados adicionales si son necesarios */
+        body {
+            font-family: 'Inter', sans-serif; /* Fuente Inter como se sugiere */
+        }
+        .error-message {
+            color: #f87171; /* Un rojo de Tailwind (red-400) */
+            font-size: 0.875rem; /* text-sm */
+            height: 1.25rem; /* h-5, para evitar saltos de layout */
+            margin-top: 0.25rem; /* mt-1 */
+        }
+        .input-field {
+            @apply w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition duration-150 ease-in-out;
+        }
+        .input-field.is-invalid {
+            @apply border-red-500 ring-red-500;
+        }
+            .input-field.is-valid {
+            @apply border-green-500 ring-green-500;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-md">
+        <h1 class="text-2xl sm:text-3xl font-bold text-center text-cyan-400 mb-8">Formulario de Registro</h1>
+
+        <form id="registro-form" novalidate>
+            <div class="mb-4">
+                <label for="nombre" class="block text-sm font-medium text-gray-300 mb-1">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"
+                        class="input-field"
+                        placeholder="Tu nombre completo">
+                <p id="nombre-error" class="error-message"></p>
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Correo Electrónico:</label>
+                <input type="email" id="email" name="email"
+                        class="input-field"
+                        placeholder="tu@correo.com">
+                <p id="email-error" class="error-message"></p>
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-300 mb-1">Contraseña:</label>
+                <input type="password" id="password" name="password"
+                        class="input-field"
+                        placeholder="Mínimo 8 caracteres">
+                <p id="password-error" class="error-message"></p>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2.5 px-4 rounded-lg
+                            focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-75
+                            transition duration-150 ease-in-out transform hover:scale-105">
+                Registrar
+            </button>
+        </form>
+
+        <div id="success-message" class="hidden mt-6 p-3 bg-green-700 text-white rounded-lg text-center text-sm">
+            ¡Registro exitoso!
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
